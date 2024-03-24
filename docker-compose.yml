@@ -1,0 +1,32 @@
+# Please note it is simple quick and dirty way to run postgresql in docker container
+# It is not recommended for production use, it is just for development purposes
+version: '3'
+
+services:
+  postgreDB:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+          POSTGRES_USER: general
+          POSTGRES_PASSWORD: general
+          PGPORT: 5433
+    ports:
+      - 9019:5433
+    expose:
+      - 5433
+    env_file:
+      - .env
+    networks:
+      - postgres-network
+    volumes:
+      - ./db-data/:/var/lib/postgresql/data/
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "general"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+
+networks: 
+  postgres-network:
+    driver: bridge

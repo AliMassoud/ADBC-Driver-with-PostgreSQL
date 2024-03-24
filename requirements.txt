@@ -1,0 +1,8 @@
+jupyter==1.0.*
+pandas==2.1.*
+numpy==1.25.*
+pyarrow==13.0.*
+fastparquet==2023.7.*
+adbc-driver-postgresql==0.10.*
+SQLAlchemy==2.0.28
+psycopg2-binary==2.9.*
