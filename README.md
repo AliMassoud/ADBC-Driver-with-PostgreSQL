@@ -21,7 +21,7 @@ make install
 ```
 you are all set, you can replicate the experiment by using the jupyter notebook!
 
-for more explanation about the experiment, please refer to this medium article:
+for more explanation about the experiment, please refer to this medium article:  
 ARTICLE
 <!-- <a target="_blank" href="https://github-readme-medium-recent-article.vercel.app/medium/@ali.massoud136/e5458c188990"><img src="https://github-readme-medium-recent-article.vercel.app/medium/@ali.massoud136/e5458c188990" alt="Recent Article 0">  -->
 
