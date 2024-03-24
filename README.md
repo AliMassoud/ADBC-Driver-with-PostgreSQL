@@ -7,8 +7,24 @@ It is an API collection that allows Arrow-native to access databases. It execute
 ## Experiment
 We compare the performance of ADBC driver and SQLAlchemy which is a popular Python SQL toolkit and Object-Relational Mapping (ORM) library. We measure the time taken to write 10 and 40 million rows to a PostgreSQL database. The experiment is conducted on a local machine with 16GB RAM and 8 cores.
 
-To replicate the experiment, please follow this short artice that explains the code, the installation process and the experiment.  
+To replicate the experiment, please follow instructions belows (make sure to have python, docker, and docker-compose installed on your machine):
+1. Clone repository.
+2. Navigate to project directory and run the following command to start PostgreSQL database on docker container:
+```bash
+docker-compose up -d
+```
+3. Create a virtual environment, activate it and install required libraries:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+make install
+```
+you are all set, you can replicate the experiment by using the jupyter notebook!
+
+for more explanation about the experiment, please refer to this medium article:
+ARTICLE
 <!-- <a target="_blank" href="https://github-readme-medium-recent-article.vercel.app/medium/@ali.massoud136/e5458c188990"><img src="https://github-readme-medium-recent-article.vercel.app/medium/@ali.massoud136/e5458c188990" alt="Recent Article 0">  -->
+
 
 
 ## Results
