@@ -3,30 +3,28 @@
 version: '3'
 
 services:
-  postgreDB:
-    image: 'postgres:latest'
-    restart: always
-    environment:
+  postgreDB: # Name of the service/container
+    image: 'postgres:latest' # the image to use, you could find more on docker hub
+    restart: always # restart the container if it fails
+    environment: # environment variables that will be passed to the container
           POSTGRES_USER: general
           POSTGRES_PASSWORD: general
           PGPORT: 5433
-    ports:
+    ports: # ports to be mapped to the host machine (host:container)
       - 9019:5433
-    expose:
+    expose: # expose the port to other containers in case other containers you want to connect them to your DB.
       - 5433
-    env_file:
-      - .env
-    networks:
+    networks: # the network to be used by the container
       - postgres-network
-    volumes:
+    volumes: # volumes to be mounted to the container
       - ./db-data/:/var/lib/postgresql/data/
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    healthcheck:
+    healthcheck: # health check to make sure the container is up and running
       test: ["CMD", "pg_isready", "-U", "general"]
       interval: 10s
       retries: 5
       start_period: 5s
 
-networks: 
+networks: # definition of the network to be used by the container
   postgres-network:
     driver: bridge
